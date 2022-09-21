@@ -13,7 +13,6 @@ function App() {
     const eventSource = new EventSource('/api/events');
     eventSource.addEventListener("comment-update", ({ data }) => {
       const parsedData = JSON.parse(data);
-      console.log(parsedData);
       if (!isEmpty(parsedData.parent_id)) {
         getComment(parsedData.parent_id);
       } else {
